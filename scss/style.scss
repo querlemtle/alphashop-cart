@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+
+/* CSS Reset */
+$gray: hsla(0, 0%, 50%, 1);
+$circle-gray: hsla(231, 10%, 71%, 1);
+$dark-text: hsla(0, 0%, 16%, 1);
+$white: hsla(0, 0%, 100%, 1);
+$button-pink: hsla(343, 88%, 71%, 1);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: $dark-text;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+header {
+  background-color: $white;
+  position: fixed;
+  z-index: 99;
+}
+
+label {
+  color: $gray;
+}
+
+.d-none {
+  display: none;
+}
+
+.container {
+  max-width: calc(100% - 60px);
+}
+
+/* header */
+.menu {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  width: 100%;
+  text-align: center;
+  background-color: $white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top center;
+}
+
+.nav-list {
+  margin: 0 15px;
+}
+
+.nav-item {
+  opacity: 0;
+  padding: 1rem;
+}
+
+.nav-item:not(:last-child) {
+  border-bottom: 2px solid #D8D8D8;
+}
+
+.menu-toggle:checked ~ .nav {
+  transform: scaleY(1);
+}
+
+.menu-toggle:checked ~ .nav .nav-item {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle-label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-image: url(/images/bx_bx-menu-alt-left@2x.png);
+  background-size: cover;
+  cursor: pointer;
+}
+
+.logo {
+  width: 135px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon:nth-child(2) {
+  margin: 0 40px;
+}
+
+.icon-container {
+  width: 152px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* main */
+.main-container {
+  padding: 4.5rem 1rem;
+}
+
+.title {
+  font-size: 24px;
+}
+
+/* progress */
+.progress {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px 1fr 100px;
+  grid-template-rows: 50px;
+  justify-items: center;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.step-connect {
+  background-color: black;
+  width: 60px;
+  height: 2px;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  background-color: $white;
+}
+
+.step.active .step-circle,
+.step.checked .step-circle {
+  background-color: black;
+  color: $white;
+}
+
+.disabled .step-circle {
+  border: 1px solid $circle-gray;
+  color: $circle-gray;
+}
+
+.step:nth-of-type(1) .step-circle::after {
+  content: "1";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+}
+
+.step:nth-of-type(2) .step-circle::after {
+  content: "2";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step:nth-of-type(3) .step-circle::after {
+  content: "3";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step.checked .step-circle::after {
+  content: "\2714";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step-connect.disabled {
+  background-color: $circle-gray;
+}
+
+/* form */
+.form-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+form > label {
+  padding: 0.5rem 0;
+  display: block;
+}
+
+form > input {
+  margin: 0.5rem 0;
+  border: 1px solid hsla(0, 0%, 29%, 1);
+  height: 40px;
+  border-radius: 4px;
+}
+
+form > select {
+  height: 40px;
+  border-radius: 4px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  padding: 0.5rem;
+  border: 1px solid hsla(0, 0%, 13%, 1);
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  box-shadow: inset 0 0 0 6px hsla(0, 0%, 16%, 1);
+}
+
+/* card */
+.card {
+  border: 1px solid hsla(240, 20%, 95%, 1);
+  border-radius: 8px;
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: 137px 137px 37px 37px;
+  gap: 1rem;
+}
+
+.card-img {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-minus, 
+.btn-plus {
+  width: 26px;
+  height: 27px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: hsla(240, 20%, 95%, 1);
+}
+
+.info-panel {
+  padding: 1rem;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid hsla(240, 20%, 95%, 1);
+}
+
+.item-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  margin: 2rem;
+}
+
+.item-detail-wrapper {
+  text-align: right;
+}
+
+/* buttons */
+.button-container {
+  width: 100%;
+  padding-top: 24px;
+  border-top: 2px solid hsla(240, 11%, 91%, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  flex-basis: 45%;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+}
+
+.btn-previous {
+  background-color: transparent;
+}
+
+.btn-next {
+  background-color: $button-pink;
+  color: $white;
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  background-color: hsl(0, 0%, 90%);
+}
+
+/*** desktop ***/
+
+/* No CSS */
+/*# sourceMappingURL=style.css.map */
