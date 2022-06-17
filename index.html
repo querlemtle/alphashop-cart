@@ -12,7 +12,8 @@
 <body>
   <div class="container">
     <header class="menu" id="menu">
-      <input type="checkbox" class="menu-toggle">
+      <label for="menu-toggle" class="menu-toggle-label cursor-pointer"></label>
+      <input type="checkbox" class="menu-toggle" id="menu-toggle">
       <div class="hamburger"></div>
       <img src="/images/logo@2x.png" alt="logo" class="logo">
       <nav class="nav">
@@ -22,116 +23,153 @@
           <li class="nav-item"><a href="#" class="nav-link">最新消息</a></li>
           <li class="nav-item"><a href="#" class="nav-link">聯絡我們</a></li>
           <li class="nav-item"><a href="#" class="nav-link">客製商品</a></li>
-          <div class="icon-container">
-            <a href="#" class="icon"><img src="/images/search-icon@2x.png" alt="search-icon"></a>
-            <a href="#" class="icon"><img src="/images/cart-icon@2x.png" alt="cart-icon"></a>
-            <a href="#" class="icon"><img src="/images/darkmode-icon@2x.png" alt="darkmode-icon"></a>
-          </div>
+          <li class="nav-item">
+            <div class="icon-container">
+              <a href="#"><img src="/images/search-icon@2x.png" alt="search-icon" class="icon"></a>
+              <a href="#"><img src="/images/cart-icon@2x.png" alt="cart-icon" class="icon"></a>
+              <a href="#"><img src="/images/darkmode-icon@2x.png" alt="darkmode-icon" class="icon"></a>
+              </div>
+          </li>
         </ul>
       </nav>
     </header>
 
     <main class="main">
-      <div class="main-container">
-        <h3 class="title title-lg">結帳</h3>
-        <div class="progress">
-          <div class="step">
-            <div class="step-circle active">1</div>
-            <span class="step-title">寄送地址</span>
-            <div class="step-connect"></div>
-            <div class="step-circle">2</div>
-            <span class="step-title">運送方式</span>
-            <div class="step-connect"></div>
-            <div class="step-circle">3</div>
-            <span class="step-title">付款資訊</span>
+      <h3 class="title title-lg">結帳</h3>
+      <div class="progress">
+        <div class="step active">
+          <div class="step-circle"></div>
+          <span class="step-title">寄送地址</span>
+        </div>
+        <span class="step-connect disabled"></span>
+        <div class="step disabled">
+          <div class="step-circle"></div>
+          <span class="step-title">運送方式</span>
+        </div>
+        <span class="step-connect disabled"></span>
+        <div class="step disabled">
+          <div class="step-circle"></div>
+          <span class="step-title">付款資訊</span>
+        </div>
+        </div>
+
+      <form>
+        <h3 class="title">寄送地址</h3>
+        <div class="form-section">
+          <div class="col-5 g-30">
+            <label for="select-title">稱謂</label>
+            <select name="input-name" id="select-title">
+              <option value="先生">先生</option>
+              <option value="小姐">小姐</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="input-name">姓名</label>
+            <input type="text" name="input-name" id="input-name" placeholder="請輸入姓名">
+          </div>
+          <div class="col-12">
+            <label for="input-phone">電話</label>
+            <input type="tel" name="input-phone" id="input-phone" placeholder="請輸入行動電話">
+          </div>
+          <div class="col-12">
+            <label for="input-email">Email</label>
+            <input type="email" name="input-email" id="input-email" placeholder="請輸入電子郵件">
+          </div>
+          <div class="col-12">
+            <label for="input-city">縣市</label>
+            <select name="input-city" id="input-city">
+              <option value="null" selected disabled hidden>請選擇縣市</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="input-address">地址</label>
+            <input type="text" name="input-address" id="input-address" placeholder="請輸入地址">
+            </div>
+            </div>
+
+        <h3 class="title">運送方式</h3>
+        <div class="form-section">
+          <div class="radio-option col-12">
+            <input type="radio" name="input-transportation" id="input-transportation" class="input-radio" checked>
+            <div class="option-title">
+              <label for="input-transportation">標準運送</label>
+              <p class="transportation-time">約 3~7 個工作天</p>
+              </div>
+              <span class="transportation-price">免費</span>
+          </div>
+
+          <div class="radio-option col-12 disabled">
+            <input type="radio" name="input-transportation" id="input-transportation" class="input-radio">
+            <div class="option-title">
+              <label for="input-transportation">DHL 貨運</label>
+              <p class="transportation-time">48 小時內送達</p>
+              </div>
+              <span class="transportation-price">$500</span>
+              </div>
+          </div>
+
+        <h3 class="title">付款資訊</h3>
+        <div class="form-section">
+          <div class="col-12">
+            <label for="input-cardname">持卡人姓名</label>
+            <input type="text" name="input-cardname" id="input-cardname" placeholder="John Doe">
+          </div>
+          <div class="col-12">
+            <label for="input-cardnumber">卡號</label>
+            <input type="tel" name="input-cardnumber" id="input-cardnumber" placeholder="1111 2222 3333 4444">
+          </div>
+          <div class="col-5 g-30">
+            <label for="input-cardvalid">有限期限</label>
+            <input type="tel" name="input-cardvalid" id="input-cardvalid" placeholder="MM/YY">
+            </div>
+            <div class="col-5">
+              <label for="input-cardverification">CVC / CCV</label>
+              <input type="tel" name="input-cardverification" id="input-cardverification" placeholder="123">
+          </div>
+          </div>
+      </form>
+
+      <section class="card">
+        <h3 class="title">購物籃</h3>
+        <div class="item-panel">
+          <img src="/images/product_1@2x.png" alt="product_1" class="card-img">
+          <div class="item-detail-wrapper">
+            <p class="card-item">
+              破壞補丁修身牛仔褲
+            </p>
+            <button class="btn-minus">-</button>
+            <span class="amount">1</span>
+            <button class="btn-plus">+</button>
+            <p class="price">$3999</p>
           </div>
         </div>
 
-        <form>
-          <h3 class="title">寄送地址</h3>
-          <label for="select-title">稱謂</label>
-          <select name="input-name" id="select-title">
-            <option value="先生">先生</option>
-            <option value="小姐">小姐</option>
-          </select>
-          <label for="input-name">姓名</label>
-          <input type="text" name="input-name" id="input-name" placeholder="請輸入姓名">
-          <label for="input-phone">電話</label>
-          <input type="tel" name="input-phone" id="input-phone" placeholder="請輸入行動電話">
-          <label for="input-email">Email</label>
-          <input type="email" name="input-email" id="input-email" placeholder="請輸入電子郵件">
-          <label for="input-city">縣市</label>
-          <select name="input-city" id="input-city">
-            <option value="null" selected disabled hidden>請選擇縣市</option>
-          </select>
-          <label for="input-address">地址</label>
-          <input type="text" name="input-address" id="input-address" placeholder="請輸入地址">
-
-          <h3 class="title">運送方式</h3>
-          <div class="transportation-option">
-            <input type="radio" name="input-transportation" id="input-transportation" checked>
-            <label for="input-transportation">標準運送</label>
-            <span>約 3~7 個工作天</span>
-            <span>免費</span>
-          </div>
-
-          <div class="transportation-option">
-            <input type="radio" name="input-transportation" id="input-transportation">
-            <label for="input-transportation">DHL 貨運</label>
-            <span>48 小時內送達</span>
-            <span>$500</span>
-          </div>
-
-          <h3 class="title">付款資訊</h3>
-          <label for="input-cardname">持卡人姓名</label>
-          <input type="text" name="input-cardname" id="input-cardname" placeholder="John Doe">
-          <label for="input-cardnumber">卡號</label>
-          <input type="tel" name="input-cardnumber" id="input-cardnumber" placeholder="1111 2222 3333 4444">
-          <label for="input-cardvalid">有限期限</label>
-          <input type="date" name="input-cardvalid" id="input-cardvalid" placeholder="MM/YY">
-          <label for="input-cardverification">CVC / CCV</label>
-          <input type="tel" name="input-cardverification" id="input-cardverification" placeholder="123">
-        </form>
-
-        <section class="card">
-          <div class="item-panel">
-            <img src="/images/product_1@2x.png" alt="product_1" class="card-img">
-            <div class="item-detail-wrapper">
-              <p class="card-item">
-                破壞補丁修身牛仔褲
-              </p>
-              <button class="btn-minus">-</button>
-              <span class="amount">1</span>
-              <button class="btn-plus">+</button>
-              <p class="price">$3999</p>
+        <div class="item-panel">
+          <img src="/images/product_2@2x.png" alt="product_2" class="card-img">
+          <div class="item-detail-wrapper">
+            <p class="card-item">
+              刷色直筒牛仔褲
+            </p>
+            <button class="btn-minus cursor-pointer">-</button>
+            <span class="amount">1</span>
+            <button class="btn-plus cursor-pointer">+</button>
+            <p class="price">$1299</p>
             </div>
-          </div>
-
-          <div class="item-panel">
-            <img src="/images/product_2@2x.png" alt="product_2" class="card-img">
-            <div class="item-detail-wrapper">
-              <p class="card-item">
-                刷色直筒牛仔褲
-              </p>
-              <button class="btn-minus">-</button>
-              <span class="amount">1</span>
-              <button class="btn-plus">+</button>
-              <p class="price">$1299</p>
             </div>
-          </div>
 
-          <div class="info-panel">
-            <h6 class="info-title">運費</h6>
-            <p class="info-text">免費</p>
-            <h6 class="info-title">小計</h6>
-            <p class="info-text">$5298</p>
-          </div>
+        <div class="info-panel">
+          <p class="info-title">運費</p>
+          <p class="info-text">免費</p>
+        </div>
+        <div class="info-panel">
+          <p class="info-title">小計</p>
+          <p class="info-text">$5298</p>
+        </div>
         </section>
 
-        <div class="button-container">
-          <button class="btn btn-previous">←上一步</button>
-          <button class="btn btn-next">下一步→</button>
-        </div>
+      <div class="button-container">
+        <button class="btn btn-previous cursor-pointer">← 上一步</button>
+        <button class="btn btn-next cursor-pointer">下一步 →</button>
       </div>
     </main>
 
@@ -172,6 +210,7 @@
       </nav>
     </footer>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
