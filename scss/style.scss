@@ -90,14 +90,6 @@ footer {
   }
 }
 
-@mixin generateCol($num) {
-  @for $i from 1 through $num {
-    .col-#{$i} {
-      width: calc(100% * (#{$i} / 12));
-    }
-  }
-}
-
 /* header */
 .menu {
   background-color: $bg-white;
@@ -107,39 +99,37 @@ footer {
   height: 56px;
   display: flex;
   align-items: center;
+}
 
-  .nav {
-    width: 100%;
-    text-align: center;
-    background-color: $bg-white;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    transform: scaleY(0);
-    transition: transform 0.3s ease;
-    transform-origin: top center;
-  }
+.nav {
+  width: 100%;
+  text-align: center;
+  background-color: $bg-white;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top center;
+}
 
-  .nav-list {
-    margin: 0 15px;
-  }
+.nav-list {
+  margin: 0 15px;
+}
 
-  .nav-item {
-    opacity: 0;
-    padding: 1rem;
-    &:not(:last-child) {
-      border-bottom: 2px solid $nav-border;
-    }
+.nav-item {
+  opacity: 0;
+  padding: 1rem;
+  &:not(:last-child) {
+    border-bottom: 2px solid $nav-border;
   }
 }
 
 .menu-toggle {
   display: none;
-
   &:checked ~ .nav {
     transform: scaleY(1);
   }
-
   &:checked ~ .nav .nav-item {
     opacity: 1;
     transition: opacity 0.3s ease 0.1s;
@@ -186,48 +176,61 @@ footer {
   font-size: 24px;
 }
 
-/* progress */
+/* stepper */
 .progress {
-  display: grid;
-  grid-template-columns: 100px 1fr 100px 1fr 100px;
-  grid-template-rows: 50px;
-  justify-items: center;
-  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 24px 0;
-  .step {
-    position: relative;
-    display: flex;
-    align-items: center;
-    @include getStepNumbers(3);
-    .step-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      position: relative;
-      background-color: $bg-white;
-    }
-    &.disabled .step-circle {
-      border: 1px solid $circle-gray;
-      color: $circle-gray;
-    }
-    &.checked .step-circle::after {
-      content: "\2714";
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+}
+
+.stepper-wrapper {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include getStepNumbers(3);
+  &.disabled .step-circle {
+    border: 1px solid $circle-gray;
+    color: $circle-gray;
   }
-  .step-connect {
-    background-color: $black;
-    width: 60px;
-    height: 2px;
-    &.disabled {
-      background-color: $circle-gray;
-    }
+  &.disabled .step-title {
+    color: $circle-gray;
   }
-  .step-title {
-    display: none;
+  &.disabled ~ .step-connect {
+    background-color: $circle-gray;
   }
+  &.checked .step-circle::after {
+    content: "\2714";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.step-connect {
+  transform: translateY(16px);
+  background-color: $black;
+  flex: 0 0 auto;
+  margin: 0 2rem;
+  width: 60px;
+  height: 2px;
+}
+
+.step-title {
+  display: none;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  background-color: $bg-white;
 }
 
 .step.active .step-circle,
@@ -260,11 +263,20 @@ form {
 }
 
 .form-section {
-  display: flex;
-  flex-flow: row wrap;
-  @include generateCol(12);
-  .g-30 {
-    margin-right: 30px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+  .col-5 {
+    grid-column: 1 / 6;
+  }
+  .col-6 {
+    grid-column: 7 / 13;
+  }
+  .col-12 {
+    grid-column: 1 / 13;
+  }
+  &.hide {
+    display: none;
   }
 }
 
@@ -282,7 +294,7 @@ form {
     "radio title . detail";
   &.disabled {
     border-color: $card-gray;
-  }  
+  }
   input[type="radio"] {
     grid-area: radio;
     -webkit-appearance: none;
@@ -319,40 +331,46 @@ form {
   grid-template-columns: auto;
   grid-template-rows: 137px 137px 37px 37px;
   gap: 1rem;
-  .title {
-    display: none;
-  }
-  .card-img {
-    width: 100px;
-    height: 100px;
-  }
-  .item-detail-wrapper {
-    text-align: right;
-  }
-  .btn-minus,
-  .btn-plus {
-    width: 26px;
-    height: 27px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 50%;
-    background-color: $card-gray;
-  }
-  .info-panel {
-    padding: 1rem;
-    margin: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid $card-gray;
-  }
-  .item-panel {
-    display: flex;
-    justify-content: space-between;
-  }
+}
 
-  .amount {
-    margin: 2rem;
-  }
+.card-title {
+  display: none;
+}
+
+.card-img {
+  width: 100px;
+  height: 100px;
+}
+
+.item-detail-wrapper {
+  text-align: right;
+}
+
+.btn-minus,
+.btn-plus {
+  width: 26px;
+  height: 27px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50%;
+  background-color: $card-gray;
+}
+
+.info-panel {
+  padding: 1rem;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $card-gray;
+}
+
+.item-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount {
+  margin: 2rem;
 }
 
 /* buttons */
@@ -363,25 +381,122 @@ form {
   border-top: 2px solid $button-top-border;
   display: flex;
   justify-content: space-between;
-  .btn {
-    flex-basis: 50%;
-    border: none;
-    border-radius: 8px;
-    height: 46px;
-  }
-  .btn-previous {
-    background-color: transparent;
-  }
-  .btn-next {
-    flex: 1;
-    background-color: $button-pink;
-    color: $bg-white;
-  }
+}
+
+.btn {
+  flex-basis: 50%;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+}
+
+.btn-previous {
+  background-color: transparent;
+}
+
+.btn-next {
+  flex: 1 0 auto;
+  background-color: $button-pink;
+  color: $bg-white;
 }
 
 /* footer */
 footer {
   display: none;
+}
+
+/*** desktop ***/
+@media screen and (min-width: 375px) {
+  .container {
+    max-width: 1110px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  /* header */
+
+  /* stepper */
+  .progress {
+    grid-column: 1 / 7;
+    max-height: 150px;
+  }
+
+  .stepper-wrapper {
+    margin-top: 3rem;
+  }
+
+  .step-title {
+    display: inline-block;
+    width: max-content;
+    margin-left: 0.5rem;
+  }
+
+  .title-lg {
+    font-size: 2rem;
+  }
+
+  /* form */
+  form {
+    grid-column: 1 / 7;
+  }
+
+  .form-section {
+    .col-1-5 {
+      grid-column: 1 / 5;
+    }
+    .col-5-13 {
+      grid-column: 5 / 13;
+    }
+    .col-1-7 {
+      grid-column: 1 / 7;
+    }
+    .col-7-13 {
+      grid-column: 7 / 13;
+    }
+  }
+  /* card */
+  .card {
+    grid-column: 7 / 13;
+    grid-row: 2 / 4;
+    grid-template-rows: 86px 137px 137px 37px 37px;
+  }
+
+  .card-title {
+    display: block;
+    align-self: center;
+  }
+
+  /* buttons */
+  .button-container {
+    grid-column: 1 / 7;
+  }
+
+  .btn-next {
+    flex: 0 0 45%;
+    margin-left: auto;
+  }
+
+  /* footer */
+  footer {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+    width: 100%;
+    background-color: $footer-gray;
+  }
+
+  .footer-nav {
+    margin: 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    .icon-container {
+      margin: 0;
+    }
+  }
 }
 /* No CSS */
 /*# sourceMappingURL=style.css.map */
