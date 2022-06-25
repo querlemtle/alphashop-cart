@@ -1,4 +1,4 @@
-import "./scss/style.scss"
+import "./scss/main.scss"
 
 const btnContainer = document.querySelector(".button-container");
 const btnPrevious = document.querySelector(".btn-previous");

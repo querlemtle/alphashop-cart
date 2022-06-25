@@ -90,6 +90,16 @@ footer {
   }
 }
 
+@mixin setGridCols($size, $end) {
+  @for $i from 1 to $end {
+    @for $j from $i+1 through $end {
+      .col-#{$size}-#{$i}-#{$j} {
+        grid-column: #{$i} / #{$j};
+      }
+    }
+  }
+}
+
 /* header */
 .menu {
   background-color: $bg-white;
@@ -120,9 +130,7 @@ footer {
 .nav-item {
   opacity: 0;
   padding: 1rem;
-  &:not(:last-child) {
-    border-bottom: 2px solid $nav-border;
-  }
+  border-bottom: 2px solid $nav-border;
 }
 
 .menu-toggle {
@@ -130,7 +138,8 @@ footer {
   &:checked ~ .nav {
     transform: scaleY(1);
   }
-  &:checked ~ .nav .nav-item {
+  &:checked ~ .nav .nav-item,
+  &:checked ~ .nav .icon-container {
     opacity: 1;
     transition: opacity 0.3s ease 0.1s;
   }
@@ -143,7 +152,7 @@ footer {
   position: absolute;
   top: 15px;
   left: 15px;
-  background-image: url("../../images/bx_bx-menu-alt-left@2x.png");
+  // background-image: url(require("../../images/bx_bx-menu-alt-left@2x.png"));
   background-size: cover;
 }
 
@@ -155,7 +164,9 @@ footer {
 
 .icon-container {
   width: 152px;
+  padding: 1rem;
   margin: 0 auto;
+  opacity: 0;
   display: flex;
   justify-content: space-between;
   .icon {
@@ -242,6 +253,7 @@ footer {
 /* form */
 form {
   width: 100%;
+  height: 400px;
   label {
     padding: 0.5rem 0;
     display: block;
@@ -266,15 +278,7 @@ form {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 30px;
-  .col-5 {
-    grid-column: 1 / 6;
-  }
-  .col-6 {
-    grid-column: 7 / 13;
-  }
-  .col-12 {
-    grid-column: 1 / 13;
-  }
+  @include setGridCols(sm, 13);
   &.hide {
     display: none;
   }
@@ -329,7 +333,7 @@ form {
   padding: 1rem;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 137px 137px 37px 37px;
+  grid-template-rows: 3fr 3fr 1fr 1fr;
   gap: 1rem;
 }
 
@@ -343,6 +347,8 @@ form {
 }
 
 .item-detail-wrapper {
+  display: grid;
+  grid-template-rows: repeat(3, 30%);
   text-align: right;
 }
 
@@ -365,8 +371,8 @@ form {
 }
 
 .item-panel {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 .amount {
@@ -412,16 +418,56 @@ footer {
   }
 
   .main {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    grid-template-areas:
+    "title title"
+    "progress cart"
+    "form cart"
+    "button cart";
   }
 
   /* header */
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav {
+    width: 100%;
+    all: unset;
+    grid-area: list;
+    display: flex;
+  }
+
+  .menu-toggle-label {
+    display: none;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .nav-list {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 30%;
+    opacity: 1;
+    border: none;
+  }
+
+  .icon-container {
+    opacity: 1;
+  }
 
   /* stepper */
   .progress {
-    grid-column: 1 / 7;
+    grid-area: progress;
     max-height: 150px;
   }
 
@@ -441,28 +487,18 @@ footer {
 
   /* form */
   form {
-    grid-column: 1 / 7;
+    grid-area: form;
   }
 
   .form-section {
-    .col-1-5 {
-      grid-column: 1 / 5;
-    }
-    .col-5-13 {
-      grid-column: 5 / 13;
-    }
-    .col-1-7 {
-      grid-column: 1 / 7;
-    }
-    .col-7-13 {
-      grid-column: 7 / 13;
-    }
+    @include setGridCols(lg,13);
   }
+
   /* card */
   .card {
-    grid-column: 7 / 13;
-    grid-row: 2 / 4;
-    grid-template-rows: 86px 137px 137px 37px 37px;
+    width: 450px;
+    grid-area: cart;
+    grid-template-rows: 1fr 3fr 3fr 1fr 1fr;
   }
 
   .card-title {
@@ -470,9 +506,37 @@ footer {
     align-self: center;
   }
 
+  .item-panel{
+    display: grid;
+    grid-template-columns: auto 2fr;
+    column-gap: 20px;
+  }
+
+  .item-detail-wrapper {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "item price"
+    "buttons buttons";
+  }
+
+  .card-item {
+    grid-area: item;
+  }
+
+  .card-buttons {
+    grid-area: buttons;
+  }
+
+  .price {
+    justify-self: end;
+    grid-area: price;
+  }
+
   /* buttons */
   .button-container {
-    grid-column: 1 / 7;
+    grid-area: button;
   }
 
   .btn-next {

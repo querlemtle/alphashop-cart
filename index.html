@@ -23,20 +23,18 @@
           <li class="nav-item"><a href="#" class="nav-link">最新消息</a></li>
           <li class="nav-item"><a href="#" class="nav-link">聯絡我們</a></li>
           <li class="nav-item"><a href="#" class="nav-link">客製商品</a></li>
-          <li class="nav-item">
+          </ul>
             <div class="icon-container">
               <a href="#"><img src="./images/search-icon@2x.png" alt="search-icon" class="icon"></a>
               <a href="#"><img src="./images/cart-icon@2x.png" alt="cart-icon" class="icon"></a>
               <a href="#"><img src="./images/darkmode-icon@2x.png" alt="darkmode-icon" class="icon"></a>
             </div>
-          </li>
-        </ul>
       </nav>
     </header>
 
     <main class="main">
+      <h3 class="title title-lg col-12">結帳</h3>
       <div class="progress">
-        <h3 class="title title-lg col-12">結帳</h3>
         <div class="stepper-wrapper col-12">
           <div class="step active">
             <div class="step-circle"></div>
@@ -57,41 +55,41 @@
 
       <form>
         <div class="form-section">
-          <h3 class="title col-12">寄送地址</h3>
-          <div class="col-5 col-1-5">
+          <h3 class="title col-sm-1-13">寄送地址</h3>
+          <div class="col-sm-1-6 col-lg-1-5">
             <label for="select-title">稱謂</label>
             <select name="input-name" id="select-title">
               <option value="先生">先生</option>
               <option value="小姐">小姐</option>
             </select>
           </div>
-          <div class="col-6 col-5-13">
+          <div class="col-sm-7-13 col-lg-5-13">
             <label for="input-name">姓名</label>
             <input type="text" name="input-name" id="input-name" placeholder="請輸入姓名">
           </div>
-          <div class="col-12 col-1-7">
+          <div class="col-sm-1-13 col-lg-1-7">
             <label for="input-phone">電話</label>
             <input type="tel" name="input-phone" id="input-phone" placeholder="請輸入行動電話">
           </div>
-          <div class="col-12 col-7-13">
+          <div class="col-sm-1-13 col-lg-7-13">
             <label for="input-email">Email</label>
             <input type="email" name="input-email" id="input-email" placeholder="請輸入電子郵件">
           </div>
-          <div class="col-12 col-1-5">
+          <div class="col-sm-1-13 col-lg-1-5">
             <label for="input-city">縣市</label>
             <select name="input-city" id="input-city">
               <option value="null" selected disabled hidden>請選擇縣市</option>
             </select>
           </div>
-          <div class="col-12 col-5-13">
+          <div class="col-sm-1-13 col-lg-5-13">
             <label for="input-address">地址</label>
             <input type="text" name="input-address" id="input-address" placeholder="請輸入地址">
           </div>
           </div>
 
         <div class="form-section hide" data-section="radio">
-          <h3 class="title col-12">運送方式</h3>
-          <div class="radio-option col-12">
+          <h3 class="title col-sm-1-13">運送方式</h3>
+          <div class="radio-option col-sm-1-13">
             <input type="radio" name="input-transportation" id="input-transportation" class="input-radio" checked>
             <div class="option-title">
               <label for="input-transportation">標準運送</label>
@@ -100,7 +98,7 @@
             <span class="transportation-price">免費</span>
           </div>
 
-          <div class="radio-option col-12 disabled">
+          <div class="radio-option col-sm-1-13 disabled">
             <input type="radio" name="input-transportation" id="input-transportation" class="input-radio">
             <div class="option-title">
               <label for="input-transportation">DHL 貨運</label>
@@ -111,20 +109,20 @@
             </div>
 
         <div class="form-section hide">
-          <h3 class="title col-12">付款資訊</h3>
-          <div class="col-12">
+          <h3 class="title col-sm-1-13">付款資訊</h3>
+          <div class="col-sm-1-9">
             <label for="input-cardname">持卡人姓名</label>
             <input type="text" name="input-cardname" id="input-cardname" placeholder="John Doe">
           </div>
-          <div class="col-12">
+          <div class="col-sm-1-9">
             <label for="input-cardnumber">卡號</label>
             <input type="tel" name="input-cardnumber" id="input-cardnumber" placeholder="1111 2222 3333 4444">
           </div>
-          <div class="col-5">
+          <div class="col-sm-1-7">
             <label for="input-cardvalid">有限期限</label>
             <input type="tel" name="input-cardvalid" id="input-cardvalid" placeholder="MM/YY">
           </div>
-          <div class="col-6">
+          <div class="col-sm-7-13">
             <label for="input-cardverification">CVC / CCV</label>
             <input type="tel" name="input-cardverification" id="input-cardverification" placeholder="123">
           </div>
@@ -139,10 +137,12 @@
             <p class="card-item">
               破壞補丁修身牛仔褲
             </p>
-            <button class="btn-minus cursor-pointer">-</button>
-            <span class="amount">1</span>
-            <button class="btn-plus cursor-pointer">+</button>
-            <p class="price">$3999</p>
+            <div class="card-buttons" data-id="1">
+              <button class="btn-minus cursor-pointer">-</button>
+              <span class="amount">1</span>
+              <button class="btn-plus cursor-pointer">+</button>
+            </div>
+            <p class="price">$3,999</p>
           </div>
         </div>
 
@@ -152,10 +152,12 @@
             <p class="card-item">
               刷色直筒牛仔褲
             </p>
-            <button class="btn-minus cursor-pointer">-</button>
-            <span class="amount">1</span>
-            <button class="btn-plus cursor-pointer">+</button>
-            <p class="price">$1299</p>
+            <div class="card-buttons" data-id="2">
+              <button class="btn-minus cursor-pointer">-</button>
+              <span class="amount">1</span>
+              <button class="btn-plus cursor-pointer">+</button>
+            </div>
+            <p class="price">$1,299</p>
           </div>
           </div>
 
@@ -165,7 +167,7 @@
         </div>
         <div class="info-panel">
           <p class="info-title">小計</p>
-          <p class="info-text">$5298</p>
+          <p class="info-text">$5,298</p>
         </div>
       </section>
 
