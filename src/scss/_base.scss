@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: var(--title-primary);
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* general settings */
+body {
+  background-color: var(--bg-primary);
+  padding: 0 1rem;
+}
+
+header,
+main,
+section,
+footer {
+  width: 100%;
+}
+
+dt {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+dd {
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+
+.main {
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--title-primary);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/*** desktop ***/
+@media screen and (min-width: 375px) {
+  body {
+    padding: 0;
+  }
+
+  .main {
+    max-width: 1110px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 8.125rem;
+    grid-template-areas:
+    "title title"
+    "progress cart"
+    "form cart"
+    "button cart";
+  }
+}  

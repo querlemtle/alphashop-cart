@@ -1,0 +1,29 @@
+footer {
+  display: none;
+}
+
+.footer-logo {
+  @extend %logo;
+}
+
+/*** desktop ***/
+@media screen and (min-width: 375px) {
+  footer {
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: 20% 75%;
+    justify-content: end;
+    align-items: center;
+    background-color: var(--footer-color);
+  }
+
+  .footer-nav {
+    margin: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+  }
+
+  .footer-nav-link {
+    color: var(--form-label-color);
+  }
+}

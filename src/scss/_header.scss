@@ -1,0 +1,142 @@
+.menu {
+  background-color: var(--bg-primary);
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  width: 100%;
+  text-align: center;
+  background-color: var(--bg-primary);
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top center;
+}
+
+.nav-item {
+  opacity: 0;
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--mobile-nav-border);
+}
+
+.menu-toggle {
+  display: none;
+  &:checked ~ .nav {
+    transform: scaleY(1);
+  }
+  &:checked ~ .nav .nav-item,
+  &:checked ~ .nav .icon-container {
+    opacity: 1;
+    transition: opacity 0.3s ease 0.1s;
+    padding: 1.5rem;
+  }
+}
+
+.menu-toggle-label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  filter: var(--mobile-hamburger-color);
+  top: 15px;
+  left: 0;
+  // https://github.com/webpack-contrib/css-loader/issues/256#issuecomment-288460824
+  background-image: url("../../images/bx_bx-menu-alt-left@2x.png");
+  background-size: cover;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.logo {
+  @extend %logo;
+  margin: 0 auto;
+}
+
+.icon-container {
+  @extend %icon-container;
+  opacity: 0;
+  margin: auto;
+  
+  .icon {
+    @extend %icon;
+  }
+}
+
+.search-icon {
+  background-image: var(--search-icon-image);
+}
+
+.cart-icon {
+  background-image: var(--cart-icon-image);
+}
+
+.darkmode-icon {
+  background-image: var(--darkmode-icon-image);
+}
+
+/*** desktop ***/
+@media screen and (min-width: 375px) {
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-nav-wrapper,
+  .menu-toggle-label {
+    display: none;
+  }
+
+  .desktop-nav-wrapper {
+    width: 100%;
+  }
+
+  .desktop-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% auto 2fr 30%;
+    grid-template-rows: 1.875rem;
+    grid-template-areas:
+    "list logo . icons";
+    justify-items: center;
+    align-items: center;
+  }
+
+  .desktop-nav-list {
+    grid-area: list;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desktop-nav-item {
+    opacity: 1;
+    border: none;
+    margin: 0 1rem;
+  }
+
+  .logo {
+    grid-area: logo;
+  }
+
+  .icon-container {
+    grid-area: icons;
+    opacity: 1;
+  }
+}

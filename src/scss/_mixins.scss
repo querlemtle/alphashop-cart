@@ -1,0 +1,21 @@
+@mixin getStepNumbers($num) {
+  @for $i from 1 through $num {
+    &:nth-of-type(#{$i}) .step-circle::after {
+      content: "#{$i}";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@mixin setGridCols($size, $end) {
+  @for $i from 1 to $end {
+    @for $j from $i+1 through $end {
+      .col-#{$size}-#{$i}-#{$j} {
+        grid-column: #{$i} / #{$j};
+      }
+    }
+  }
+}

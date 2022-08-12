@@ -1,0 +1,83 @@
+html {
+  --mobile-nav-border: hsl(0, 0%, 85%);
+  --mobile-hamburger-color: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7500%) hue-rotate(218deg) brightness(91%) contrast(108%);
+  --logo-image: url("./images/logo@2x.png");
+  --search-icon-image: url("./images/search-icon@2x.png");
+  --cart-icon-image: url("./images/cart-icon@2x.png");
+  --darkmode-icon-image: url("./images/darkmode-icon@2x.png");
+  --stepper-circle-disabled: hsla(231, 10%, 71%, 1);
+  --stepper-circle-activated: hsl(0, 0%, 0%);
+  --stepper-connect: hsl(0, 0%, 0%, 1);
+  --stepper-text: hsla(0, 0%, 100%, 1);
+  --title-primary: hsla(0, 0%, 16%, 1);
+  --bg-primary: hsla(0, 0%, 100%, 1);
+  --form-label-color: hsla(0, 0%, 50%, 1);
+  --form-input-border: hsla(0, 0%, 29%, 1);
+  --form-radio-subtitle: hsl(0, 0%, 0%);
+  --form-radio-border: hsla(0, 0%, 13%, 1);
+  --form-radio-box-shadow: hsla(0, 0%, 16%, 1);
+  --card-border: hsla(240, 20%, 95%, 1);
+  --card-background: hsla(0, 0%, 100%, 1);
+  --card-title: hsla(0, 0%, 16%, 1);
+  --card-text: hsla(0, 0%, 0, 1);
+  --card-btn: hsla(240, 20%, 95%, 1);
+  --button-previous-color: hsla(0, 0%, 0, 1);
+  --button-next-color: hsla(343, 88%, 71%, 1);
+  --button-next-text: hsla(0, 0%, 100%, 1);
+  --button-top-border: hsl(240, 11%, 91%);
+  --footer-color: hsl(0, 0%, 90%);
+}
+
+html.dark {
+  --mobile-nav-border: hsl(0, 0%, 85%);
+  --mobile-hamburger-color: brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(650%) hue-rotate(209deg) brightness(104%) contrast(104%);
+  --logo-image: url("./images/darkmode-logo@2x.png");
+  --search-icon-image: url("./images/darkmode-search-icon@2x.png");
+  --cart-icon-image: url("./images/darkmode-cart-icon@2x.png");
+  --darkmode-icon-image: url("./images/lightmode-icon@2x.png");
+  --stepper-circle-disabled: hsla(240, 20%, 95%, 0.4);
+  --stepper-circle-activated: hsla(0, 0%, 20%, 1);
+  --stepper-connect: hsla(0, 0%, 100%, 1);
+  --stepper-text: hsla(0, 0%, 100%, 1);
+  --title-primary: hsla(0, 0%, 100%, 1);
+  --bg-primary: hsl(0, 0%, 7%);
+  --form-label-color: rgba(255, 255, 255, 0.4);
+  --form-radio-subtitle: rgba(255, 255, 255, 0.4);
+  --form-input-border: hsla(0, 0%, 37%, 1);
+  --form-radio-border: hsla(0, 0%, 37%, 1);
+  --form-radio-box-shadow: hsl(0, 0%, 20%);
+  --card-border: hsla(0, 0%, 100%, 0.2);
+  --card-background: hsla(0, 0%, 22%, 1);
+  --card-title: hsla(0, 0%, 100%, 1);
+  --card-text: hsla(0, 0%, 100%, 1);
+  --card-btn: hsla(0, 0%, 50%, 1);
+  --button-previous-color: hsla(0, 0%, 100%, 1);
+  --button-next-color: hsla(343, 88%, 71%, 1);
+  --button-next-text: hsla(0, 0%, 100%, 1);
+  --button-top-border: hsla(0, 0%, 100%, 0.2);
+  --footer-color: hsl(0, 0%, 20%);
+}
+
+%logo {
+  width: 135px;
+  height: 30px;
+  background-image: var(--logo-image);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+%icon-container {
+  width: 152px;
+  display: flex;
+}
+
+%icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.button-container {
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 40px;
+  border-top: 2px solid var(--button-top-border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  flex-basis: 50%;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+}
+
+.btn-previous {
+  background-color: transparent;
+  color: var(--button-previous-color);
+}
+
+.btn-next {
+  flex: 1 0 auto;
+  background-color: var(--button-next-color);
+  color: var(--button-next-text);
+}
+
+/*** desktop ***/
+@media screen and (min-width: 375px) {
+  .button-container {
+    grid-area: button;
+  }
+
+  .btn-next {
+    flex: 0 0 45%;
+    margin-left: auto;
+  }
+}

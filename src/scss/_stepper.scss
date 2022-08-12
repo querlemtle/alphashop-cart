@@ -1,0 +1,84 @@
+.progress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+}
+
+.stepper-wrapper {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include getStepNumbers(3);
+  &.disabled .step-circle {
+    border: 1px solid var(--stepper-circle-disabled);
+    color: var(--stepper-circle-disabled);
+  }
+  &.disabled .step-title {
+    color: var(--stepper-circle-disabled);
+  }
+  &.disabled ~ .step-connect {
+    background-color: var(--stepper-circle-disabled);
+  }
+  &.checked .step-circle::after {
+    content: "\2714";
+    color: var(--step-connect);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.step-connect {
+  transform: translateY(16px);
+  background-color: var(--stepper-connect);
+  flex: 0 0 auto;
+  margin: 0 2rem;
+  width: 60px;
+  height: 2px;
+}
+
+.step-title {
+  display: none;
+  color: var(--title-primary);
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.step.active .step-circle,
+.step.checked .step-circle {
+  background-color: var(--stepper-circle-activated);
+  color: var(--stepper-text);
+}
+
+@media screen and (min-width: 375px) {
+  .progress {
+    grid-area: progress;
+    max-height: 150px;
+  }
+
+  .stepper-wrapper {
+    margin: 3rem 0;
+  }
+
+  .step-title {
+    display: inline-block;
+    width: max-content;
+    margin-left: 0.5rem;
+  }
+
+  .title-lg {
+    font-size: 2rem;
+  }
+}
