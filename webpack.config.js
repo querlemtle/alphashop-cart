@@ -1,3 +1,4 @@
+// https://github.com/webpack-contrib/css-loader/issues/256#issuecomment-288460824
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
