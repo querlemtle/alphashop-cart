@@ -1,10 +1,10 @@
 html {
   --mobile-nav-border: hsl(0, 0%, 85%);
   --mobile-hamburger-color: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7500%) hue-rotate(218deg) brightness(91%) contrast(108%);
-  --logo-image: url("./images/logo@2x.png");
-  --search-icon-image: url("./images/search-icon@2x.png");
-  --cart-icon-image: url("./images/cart-icon@2x.png");
-  --darkmode-icon-image: url("./images/darkmode-icon@2x.png");
+  --logo-image: url("../images/logo@2x.png");
+  --search-icon-image: url("../images/search-icon@2x.png");
+  --cart-icon-image: url("../images/cart-icon@2x.png");
+  --darkmode-icon-image: url("../images/darkmode-icon@2x.png");
   --stepper-circle-disabled: hsla(231, 10%, 71%, 1);
   --stepper-circle-activated: hsl(0, 0%, 0%);
   --stepper-connect: hsl(0, 0%, 0%, 1);
@@ -31,10 +31,10 @@ html {
 html.dark {
   --mobile-nav-border: hsl(0, 0%, 85%);
   --mobile-hamburger-color: brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(650%) hue-rotate(209deg) brightness(104%) contrast(104%);
-  --logo-image: url("./images/darkmode-logo@2x.png");
-  --search-icon-image: url("./images/darkmode-search-icon@2x.png");
-  --cart-icon-image: url("./images/darkmode-cart-icon@2x.png");
-  --darkmode-icon-image: url("./images/lightmode-icon@2x.png");
+  --logo-image: url("../images/darkmode-logo@2x.png");
+  --search-icon-image: url("../images/darkmode-search-icon@2x.png");
+  --cart-icon-image: url("../images/darkmode-cart-icon@2x.png");
+  --darkmode-icon-image: url("../images/lightmode-icon@2x.png");
   --stepper-circle-disabled: hsla(240, 20%, 95%, 0.4);
   --stepper-circle-activated: hsla(0, 0%, 20%, 1);
   --stepper-connect: hsla(0, 0%, 100%, 1);

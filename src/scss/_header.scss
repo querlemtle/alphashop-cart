@@ -54,8 +54,7 @@
   filter: var(--mobile-hamburger-color);
   top: 15px;
   left: 0;
-  // https://github.com/webpack-contrib/css-loader/issues/256#issuecomment-288460824
-  background-image: url("../../images/bx_bx-menu-alt-left@2x.png");
+  background-image: url("../images/bx_bx-menu-alt-left@2x.png");
   background-size: cover;
 }
 
