@@ -70,11 +70,6 @@ dd {
   padding-bottom: 0.5rem;
 }
 
-.main {
-  margin: 0 auto;
-  padding: 4.5rem 0;
-}
-
 .title {
   font-size: 1.5rem;
   color: var(--title-primary);
@@ -84,15 +79,30 @@ dd {
   cursor: pointer;
 }
 
-/*** desktop ***/
+/*** tablet ***/
 @media screen and (min-width: 375px) {
   body {
     padding: 0;
+    max-width: 1110px;
+  }
+
+  header {
+    margin: 0 auto;
   }
 
   .main {
-    max-width: 1110px;
     width: 100%;
+    margin: 0 auto;
+  }
+}  
+
+/*** desktop ***/
+@media screen and (min-width: 989px) {
+  body {
+    margin: 0 auto;
+  }
+
+  .main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 8.125rem;
