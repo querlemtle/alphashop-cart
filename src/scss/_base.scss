@@ -83,26 +83,23 @@ dd {
 @media screen and (min-width: 375px) {
   body {
     padding: 0;
-    max-width: 1110px;
-  }
-
-  header {
     margin: 0 auto;
   }
 
   .main {
+    padding: 0 1rem;
     width: 100%;
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
   }
 }  
 
 /*** desktop ***/
 @media screen and (min-width: 989px) {
-  body {
-    margin: 0 auto;
-  }
-
   .main {
+    width: 100%;
+    max-width: 1110px;
+    margin-top: 5rem;
+    margin-bottom: 7.5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 8.125rem;
