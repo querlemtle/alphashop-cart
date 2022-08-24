@@ -1,6 +1,8 @@
 # alphashop-cart
 電商購物車切版練習
 
+GitHub page: https://querlemtle.github.io/alphashop-cart/
+
 ![preview](images/preview.png)
 
 ### 功能簡介

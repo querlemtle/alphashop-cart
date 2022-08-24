@@ -1,4 +1,7 @@
 html {
+  --font-family-primary: "Noto Sans TC", sans-serif;
+  --font-family-secondary: "Inter", sans-serif;
+  --font-family-tertiary: "Nunito Sans", sans-serif;
   --mobile-nav-border: hsl(0, 0%, 85%);
   --mobile-hamburger-color: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7500%) hue-rotate(218deg) brightness(91%) contrast(108%);
   --logo-image: url("../images/logo@2x.png");
@@ -15,6 +18,7 @@ html {
   --form-input-border: hsla(0, 0%, 29%, 1);
   --form-radio-subtitle: hsl(0, 0%, 0%);
   --form-radio-border: hsla(0, 0%, 13%, 1);
+  --form-radio-background: hsl(0, 0%, 100%, 1);
   --form-radio-box-shadow: hsla(0, 0%, 16%, 1);
   --card-border: hsla(240, 20%, 95%, 1);
   --card-background: hsla(0, 0%, 100%, 1);
@@ -45,6 +49,7 @@ html.dark {
   --form-radio-subtitle: rgba(255, 255, 255, 0.4);
   --form-input-border: hsla(0, 0%, 37%, 1);
   --form-radio-border: hsla(0, 0%, 37%, 1);
+  --form-radio-background: hsla(0, 0%, 20%, 1);
   --form-radio-box-shadow: hsl(0, 0%, 20%);
   --card-border: hsla(0, 0%, 100%, 0.2);
   --card-background: hsla(0, 0%, 22%, 1);
@@ -68,16 +73,13 @@ html.dark {
 }
 
 %icon-container {
-  width: 152px;
   display: flex;
+  column-gap: 2rem;
 }
 
 %icon {
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 18px;
   background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;
 }

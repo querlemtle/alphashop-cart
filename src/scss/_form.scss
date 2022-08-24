@@ -1,13 +1,13 @@
 form {
   width: 100%;
   label {
-    padding: 0.5rem 0;
+    padding-bottom: 0.5rem;
     display: block;
     color: var(--form-label-color);
   }
   input {
     width: 100%;
-    padding: 1rem;
+    padding: 0.68rem;
     border: 1px solid var(--form-input-border);
     background-color: transparent;
     color: var(--card-text);
@@ -35,12 +35,11 @@ form {
 }
 
 .radio-option {
-  margin-top: 1.5rem;
+  padding: 1rem;
   border: 1px solid var(--title-primary);
   border-radius: 4px;
   display: grid;
   grid-template-columns: 40px 150px 1fr 40px;
-  grid-template-rows: 30px 30px;
   justify-items: center;
   align-items: center;
   grid-template-areas:
@@ -48,19 +47,36 @@ form {
     "radio title . detail";
   &.disabled {
     border-color: var(--card-border);
+    label {
+      font-weight: 700;
+    }
   }
   input[type="radio"] {
     grid-area: radio;
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    padding: 8px;
-    background-color: #FFFFFF;
+    background-color: var(--form-radio-background);
     border: 1px solid var(--form-radio-border);
     border-radius: 50%;
+    position: relative;
     &:checked {
+      transform: scale(1);
       box-shadow: inset 0 0 0 6px var(--form-radio-box-shadow);
     }
+  }
+}
+
+html.dark {
+  .input-radio:checked::before {
+    content: "";
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 6px;
+    transform: translate(-50%);
   }
 }
 
@@ -68,16 +84,20 @@ form {
   grid-area: title;
   label {
     color: var(--title-primary);
+    font-weight: 400;
+    font-family: var(--font-family-secondary);
   }
 }
 
 .transportation-time {
+  font-family: var(--font-family-secondary);
   color: var(--form-radio-subtitle);
 }
 
-.transportation-price {
+.shipping-price {
   align-self: start;
   grid-area: detail;
+  font-family: var(--font-family-secondary);
   color: var(--card-text);
 }
 
